@@ -3,6 +3,7 @@ import { useState } from "react"
 import previous from "../../assets/images/previous.png"
 import next from "../../assets/images/next.png"
 import styled from "styled-components"
+import colors from "../../utils/style/colors"
 
 const CarrouselWrapper = styled.div`
   position: relative;
@@ -54,9 +55,23 @@ function Carrousel({ pictures }) {
     }
   }
 
+  const Counter = styled.span`
+    position: absolute;
+    bottom: 24px;
+    color: ${colors.white};
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+  `
+
   return (
     <CarrouselWrapper>
       <CarrouselImg src={pictures[picture]} alt="" />
+      {arrayLength > 0 && (
+        <Counter>
+          {picture + 1}/{arrayLength + 1}
+        </Counter>
+      )}
       {arrayLength > 0 && (
         <PreviousPicture
           src={previous}
