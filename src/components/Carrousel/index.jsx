@@ -7,15 +7,27 @@ import colors from "../../utils/style/colors"
 
 const CarrouselWrapper = styled.div`
   position: relative;
-`
 
-const CarrouselImg = styled.img`
-  max-height: 415px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 25px;
-  margin-top: 25px;
-  display: block;
+  .carrouselImg {
+    max-height: 415px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    margin-top: 25px;
+    display: block;
+  }
+
+  .counter {
+    position: absolute;
+    bottom: 24px;
+    color: ${colors.white};
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `
 
 const PreviousPicture = styled.img`
@@ -23,6 +35,11 @@ const PreviousPicture = styled.img`
   left: 23px;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    height: 19px;
+  }
 `
 
 const NextPicture = styled.img`
@@ -30,12 +47,16 @@ const NextPicture = styled.img`
   right: 23px;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    height: 19px;
+  }
 `
 
 function Carrousel({ pictures }) {
   const [picture, setPicture] = useState(0)
   const arrayLength = pictures.length - 1
-  console.log(arrayLength, picture)
 
   const nextPictureBtn = () => {
     if (picture < arrayLength) {
@@ -55,22 +76,13 @@ function Carrousel({ pictures }) {
     }
   }
 
-  const Counter = styled.span`
-    position: absolute;
-    bottom: 24px;
-    color: ${colors.white};
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 18px;
-  `
-
   return (
     <CarrouselWrapper>
-      <CarrouselImg src={pictures[picture]} alt="" />
+      <img className="carrouselImg" src={pictures[picture]} alt="" />
       {arrayLength > 0 && (
-        <Counter>
+        <span className="counter">
           {picture + 1}/{arrayLength + 1}
-        </Counter>
+        </span>
       )}
       {arrayLength > 0 && (
         <PreviousPicture

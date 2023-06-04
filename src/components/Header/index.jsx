@@ -21,12 +21,15 @@ const ImgLogo = styled.img`
 const StyledLink = styled(Link)`
   color: #ff6060;
   margin-left: 60px;
+  font-size: 24px;
 
   &.active {
     text-decoration: underline;
   }
   @media (max-width: 768px) {
     margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
   }
 `
 

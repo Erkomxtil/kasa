@@ -1,8 +1,8 @@
 .open {
-  rotate: 180deg;
+  rotate: 0deg;
   transition: rotate 0.5s;
 }
 .close {
-  rotate: 0deg;
+  rotate: 180deg;
   transition: rotate 0.5s;
 }

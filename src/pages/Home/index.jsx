@@ -19,6 +19,15 @@ const ImgWrapper = styled.div`
     width: 100%;
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 19px;
+    p {
+      font-size: 24px;
+      text-align: left;
+      padding-left: 16px;
+    }
+  }
 `
 const LocationWrapper = styled.div`
   display: grid;
@@ -37,6 +46,11 @@ const LocationWrapper = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 22px;
+    padding-top: 0;
   }
 `
 

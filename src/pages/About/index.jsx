@@ -7,6 +7,12 @@ import Banner from "../../components/Banner"
 const Container = styled.div`
   margin-top: 34px;
   flex-grow: 1;
+
+  @media (max-width: 768px) {
+    img {
+      margin-bottom: 20px;
+    }
+  }
 `
 
 function About() {

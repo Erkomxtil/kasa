@@ -9,9 +9,11 @@ const ErrorWrapper = styled.div`
 `
 const Error404 = styled.h1`
   font-size: 288px;
+  margin-top: 92px;
 
   @media (max-width: 768px) {
     font-size: 96px;
+    margin-top: 174px;
   }
 `
 const ErrorText = styled.p`
@@ -28,6 +30,7 @@ const LinkHome = styled(Link)`
   text-decoration: underline;
   padding-bottom: 159px;
   font-size: 18px;
+  display: block;
   @media (max-width: 768px) {
     font-size: 14px;
   }
