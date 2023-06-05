@@ -12,6 +12,10 @@ const FooterWrapper = styled.div`
 const TextFooter = styled.p`
   color: colors.white;
   margin-top: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `
 
 function Footer() {

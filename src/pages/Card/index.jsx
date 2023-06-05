@@ -1,5 +1,4 @@
-import React from "react"
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Logements from "../../assets/api/logements.json"
 import styled from "styled-components"
 import Carrousel from "../../components/Carrousel"
@@ -31,9 +30,14 @@ const TitleLocationTagWrapper = styled.div`
   h2 {
     margin-bottom: 10px;
     font-weight: 500;
+    font-size: 36px;
   }
   p {
     margin-bottom: 34px;
+    font-size: 16px;
+    span {
+      font-size: 14px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -57,6 +61,7 @@ const NamePictureStarWrapper = styled.div`
     color: #ff6060;
     font-size: 18px;
     line-height: 25px;
+    justify-content: flex-end;
 
     @media (max-width: 768px) {
       font-size: 12px;
@@ -73,7 +78,7 @@ const NamePictureStarWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin-top: 16px;
+    margin-top: -12px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -103,6 +108,7 @@ const DescriptionFurnitureWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 76px;
+  margin-top: -34px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -112,11 +118,8 @@ const DescriptionFurnitureWrapper = styled.div`
 
 function Card() {
   const navigate = useNavigate()
-
-  const location = useLocation()
-  const splitLocation = location.pathname.split("/")
-  const idLocation = splitLocation[2]
-  const logement = Logements.find((el) => el.id === idLocation)
+  const { id } = useParams()
+  const logement = Logements.find((el) => el.id === id)
   let firstName = ""
   let lastName = ""
 
@@ -218,12 +221,16 @@ function Card() {
           </NamePictureStarWrapper>
         </InfosWrapper>
         <DescriptionFurnitureWrapper>
-          <Collapse title={"Description"} texte={logement.description} />
-          <Collapse
-            title={"Équipements"}
-            texte={logement.equipments}
-            page={"logement"}
-          />
+          <Collapse title={"Description"}>
+            <p>{logement.description}</p>
+          </Collapse>
+          <Collapse title={"Équipements"}>
+            <ul>
+              {logement.equipments.map((equipement, index) => (
+                <li key={`logement-${index}`}>{equipement}</li>
+              ))}
+            </ul>
+          </Collapse>
         </DescriptionFurnitureWrapper>
       </MainWrapper>
     )

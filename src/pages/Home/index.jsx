@@ -32,6 +32,7 @@ const ImgWrapper = styled.div`
 const LocationWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 340px;
   grid-column-gap: 60px;
   grid-row-gap: 50px;
   padding: 56px 50px;
@@ -46,6 +47,7 @@ const LocationWrapper = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 255px;
     background: none;
     padding-left: 0;
     padding-right: 0;

@@ -25,18 +25,20 @@ const Title = styled.h1`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 
   @media (max-width: 768px) {
     font-size: 13px;
+    padding: 5px 5px 5px 9px;
   }
 `
 const TexteInfo = styled.div`
-  display: ${({ isOpen }) => (isOpen === "close" ? "none" : "block")};
+  display: ${({ isOpen }) => (isOpen ? "none" : "block")};
   background: ${colors.background};
   border-radius: 6px;
   padding: 30px 18px 19px 18px;
   color: ${colors.red};
-  font-size: 18px;
+  font-size: 24px;
 
   li {
     list-style: none;
@@ -44,34 +46,39 @@ const TexteInfo = styled.div`
 
   @media (max-width: 768px) {
     font-size: 12px;
+    padding-top: 17px;
   }
 `
 const ArrowImg = styled.img`
   width: 25px;
   height: 14px;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 9px;
+    width: 16px;
+    height: 9px;
+    right: 9px;
+  }
 `
 
-function Collapse({ title, texte, page }) {
-  const [state, setState] = useState("close")
+function Collapse({ title, children }) {
+  const [isOpen, setIsOpen] = useState(true)
   const toggleCollapse = () => {
-    setState(state === "close" ? "open" : "close")
+    setIsOpen(isOpen ? false : true)
   }
 
   return (
     <CollapseWrapper onClick={() => toggleCollapse()}>
       <Title>
-        {title} <ArrowImg className={state} src={arrow} alt="arrow" />
+        {title}{" "}
+        <ArrowImg
+          className={isOpen ? "close" : "open"}
+          src={arrow}
+          alt="arrow"
+        />
       </Title>
-      {page === "logement" ? (
-        <TexteInfo isOpen={state}>
-          {texte &&
-            texte.map((furniture, index) => (
-              <li key={`furniture-${index}`}>{furniture}</li>
-            ))}{" "}
-        </TexteInfo>
-      ) : (
-        <TexteInfo isOpen={state}>{texte}</TexteInfo>
-      )}
+      <TexteInfo isOpen={isOpen}>{children}</TexteInfo>
     </CollapseWrapper>
   )
 }

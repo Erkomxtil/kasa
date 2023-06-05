@@ -39,14 +39,12 @@ function About() {
     },
   ]
   return (
-    <Container>
+    <Container className="about">
       <Banner picture={picture} />
       {infos.map((info) => (
-        <Collapse
-          key={`dropdown-${info.title}`}
-          title={info.title}
-          texte={info.texte}
-        />
+        <Collapse key={`dropdown-${info.title}`} title={info.title}>
+          {info.texte}
+        </Collapse>
       ))}
     </Container>
   )

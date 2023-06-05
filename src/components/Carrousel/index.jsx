@@ -15,6 +15,10 @@ const CarrouselWrapper = styled.div`
     border-radius: 25px;
     margin-top: 25px;
     display: block;
+
+    @media (max-width: 768px) {
+      height: 255px;
+    }
   }
 
   .counter {

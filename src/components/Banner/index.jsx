@@ -7,6 +7,10 @@ const Landscape = styled.img`
   width: 100%;
   height: 223px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    height: 111px;
+  }
 `
 
 function Banner({ picture, texte }) {

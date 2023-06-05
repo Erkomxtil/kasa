@@ -18,7 +18,7 @@ const Error404 = styled.h1`
 `
 const ErrorText = styled.p`
   font-size: 36px;
-  margin-bottom: 136px;
+  margin-bottom: 176px;
 
   @media (max-width: 768px) {
     font-size: 18px;
