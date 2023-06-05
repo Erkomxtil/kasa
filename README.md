@@ -1,5 +1,10 @@
 # Projet n°11 - Développeur Applications Javascript React
 
+# objectif 
+
+Démarrer le projet React et développer l’ensemble de l’application, les composants React, les routes React Router, en suivant les maquettes Figma (responsives !)
+
+# Technos utilisées
 ![68747470733a2f2f736b696c6c69636f6e732e6465762f69636f6e733f693d72656163742c736173732c6669676d612c6769746875622c68746d6c2c6a732c7673636f64652c76657263656c](https://github.com/Erkomxtil/kasa/assets/49149539/26fc9fa6-763c-4c8c-9c20-622bb6f5a0bb)
 
 # Getting Started with Create React App
